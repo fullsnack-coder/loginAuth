@@ -42,6 +42,7 @@ The user can register, saving an email and a password in encrypted form for grea
 
 	npm run devStart
 
+Enter the **localhost:3004** url in your browser.
 Enjoy!
 
 ### Licence
