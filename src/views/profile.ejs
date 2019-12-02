@@ -1,0 +1,20 @@
+<%- layout('./layouts/main.ejs')%>
+
+<div class="container mt-4">
+  <figure class="col-md-4 mr-auto ml-auto text-center">
+    <img
+      src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/profile_6l1l.svg"
+      alt="profile_img"
+      style="width: 100%;"
+    />
+    <h1 class="mt-4">PROFILE</h1>
+  </figure>
+  <div class="container">
+    <h5>Id:</h5>
+    <p><%= user._id %></p>
+    <h5>Email:</h5>
+    <p><%= user.email %></p>
+    <h5>Password encrypted:</h5>
+    <p><%= user.password %></p>
+  </div>
+</div>

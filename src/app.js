@@ -4,6 +4,14 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const engine = require('ejs-mate');
+const passport = require('passport');
+const connectFlash = require('connect-flash');
+
+const session = require('express-session');
+const { signMessages } = require("./middlewares");
+
+require("./passport/local-auth");
+require('./database');
 
 const routes = require('./routes');
 
@@ -20,6 +28,16 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+
+app.use(session({
+    secret: "mysecretsession",
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(connectFlash());
+app.use(passport.initialize());
+app.use(passport.session());
+signMessages(app);
 
 //routes
 app.use('/', routes);
